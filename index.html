@@ -9,31 +9,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.js"></script>
     <script src="index.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="app.css">
   </head>
   <body ng-app="myApp">
+    <div id="fb-root"></div>
     <script>
       // This is called with the results from from FB.getLoginStatus().
       function statusChangeCallback(response) {
-        console.log('statusChangeCallback');
-        console.log(response);
         // The response object is returned with a status field that lets the
         // app know the current login status of the person.
         // Full docs on the response object can be found in the documentation
         // for FB.getLoginStatus().
         if (response.status === 'connected') {
-          // Logged into your app and Facebook.
-          testAPI();
+          // // Logged into your app and Facebook.
+          // testAPI();
         } else if (response.status === 'not_authorized') {
-          // The person is logged into Facebook, but not your app.
-          document.getElementById('status').innerHTML = 'Please log ' +
-            'into this app.';
+          // // The person is logged into Facebook, but not your app.
+          // document.getElementById('status').innerHTML = 'Please log ' +
+          //   'into this app.';
         } else {
-          // The person is not logged into Facebook, so we're not sure if
-          // they are logged into this app or not.
-          document.getElementById('status').innerHTML = 'Please log ' +
-            'into Facebook.';
+          // // The person is not logged into Facebook, so we're not sure if
+          // // they are logged into this app or not.
+          // document.getElementById('status').innerHTML = 'Please log ' +
+          //   'into Facebook.';
         }
       }
 
