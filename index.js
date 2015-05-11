@@ -98,6 +98,7 @@ angular.module('myApp').controller('HomeCtrl', function ($scope, $timeout, $http
   $scope.$on('facebookStatusChange', function (e, response) {
     if (response.status === 'connected') {
       FB.api('/me', function(data) {
+        console.log(data);
         var user = {
           fbId: data.id,
           email: data.email,
