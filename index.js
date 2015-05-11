@@ -74,16 +74,27 @@ angular.module('myApp').controller('HomeCtrl', function ($scope, $timeout, $http
     arrivalDate: undefined,
     departureDate: undefined
   };
-
-  $scope.$watch('data.arrivalDate', function (nv) {
-    if (nv) {
-      $scope.formVariables.departureMinDate = nv;
+  $scope.submitArrivalDate = function () {
+    //var m = moment($scope.data.arrivalDate,'dd-MMMM-yyyy');
+    if ($scope.data.arrivalDate !== undefined) {
+      $scope.formVariables.departureMinDate = $scope.data.arrivalDate;
       $scope.activateSlide(1, true);
+    } else {
+      $scope.dateError = 'Please enter a valid date using the date picker.';
     }
-  });
-  $scope.$watch('data.departureDate', function (nv) {
-    if (nv) $scope.activateSlide(3, true);
-  });
+  }
+  $scope.submitDepartureDate = function () {
+    var m = moment($scope.data.departureDate,'dd-MMMM-yyyy');
+    if (m.isValid()) {
+      $scope.activateSlide(3, true);
+    } else {
+      $scope.dateError = 'Please enter a valid date using the date picker.';
+    }
+  }
+  $scope.$watchGroup(['data.arrivalDate','data.departureDate'], function () {
+    $scope.dateError = '';
+  })
+
   $scope.$on('facebookStatusChange', function (e, response) {
     if (response.status === 'connected') {
       FB.api('/me', function(data) {
@@ -96,7 +107,7 @@ angular.module('myApp').controller('HomeCtrl', function ($scope, $timeout, $http
         };
         $http({
           method:'POST',
-          url:'http://localhost:3000/users',
+          url:'https://findaplacemaltaapi.herokuapp.com/users',
           params: {
             'placeRequest': $scope.placeRequest._id
           },
@@ -122,7 +133,7 @@ angular.module('myApp').controller('HomeCtrl', function ($scope, $timeout, $http
       $http({
         method:'POST',
         data:$scope.data,
-        url:'http://localhost:3000/placeRequest'
+        url:'https://findaplacemaltaapi.herokuapp.com/placeRequest'
       }).then(function (data, status, headers, config) {
         $scope.placeRequest = data.data;
         $scope.activateSlide(6, false);
