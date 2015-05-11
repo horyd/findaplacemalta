@@ -32,3 +32,15 @@ header .logo {
 [x-ng-click] {
     cursor: pointer;
 }
+
+button.next-date-selected {
+  width:100%;
+}
+
+.select-date-text {
+  margin-bottom: 10px;
+}
+.select-date-text span {
+  text-align: center;
+  font-weight: bold;
+}

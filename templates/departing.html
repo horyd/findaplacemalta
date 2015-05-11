@@ -1,15 +1,24 @@
 <div class="slide-with-datepicker">
   <h3>When are you departing Malta?</h3>
+  <div class="select-date-text">
+    <span>Select a date</span>
+  </div>
   <div class="row">
-    <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+    <div class="col-lg-3 col-lg-offset-4 col-md-4 col-md-offset-3 col-sm-5 col-sm-offset-2 col-xs-8">
       <p class="input-group">
-        <input type="date" class="form-control" datepicker-popup ng-model="data.departureDate" is-open="formVariables.departureOpened" show-weeks="false" min-date="formVariables.departureMinDate" max-date="'2016-05-10'" ng-required="true" close-text="Close" />
+        <input type="text" class="form-control" datepicker-popup="''dd-MMMM-yyyy''" ng-model="data.departureDate" is-open="formVariables.departureOpened" show-weeks="false" min-date="formVariables.departureMinDate" max-date="'2016-05-10'" ng-required="true" close-text="Close" />
         <span class="input-group-btn">
           <button type="button" class="btn btn-default" ng-click="open($event,'departureOpened')"><i class="glyphicon glyphicon-calendar"></i></button>
         </span>
       </p>
     </div>
+    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4">
+      <button ng-click="submitDepartureDate()" class="btn btn-default next-date-selected">Next ></button>
+    </div>
+  </div>
+  <div class="date-error">
+    {{dateError}}
   </div>
   <h4>or</h4>
-  <button ng-click="data.departureData = undefined;activateSlide(3,true);" class="btn">I don't know</button>
+  <button ng-click="data.departureData = undefined;activateSlide(3,true);" class="btn btn-default">I don't know</button>
 </div>
