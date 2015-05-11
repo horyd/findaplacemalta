@@ -1,0 +1,7 @@
+<div>
+  <h2>Hi, {{user.firstName}}!</h2>
+  <p class="place-request-readable">We have you down as looking for a place in Malta starting <span ng-if="placeRequest.arrivalDate">from {{placeRequest.arrivalDate | date:"fullDate"}}</span><span ng-if="!placeRequest.arrivalDate">as soon as possible</span> and ending <span ng-if="placeRequest.departureDate">on {{placeRequest.departureDate | date:"fullDate"}}</span><span ng-if="!placeRequest.departureDate && !placeRequest.isGreaterThanSixMonths">at some point in the future</span><span ng-if="placeRequest.isGreaterThanSixMonths">in more than 6 months</span>, for <span ng-if="placeRequest.people == 1">just yourself</span><span ng-if="placeRequest.people == 2 && !placeRequest.isCouple">you and one other person</span><span ng-if="placeRequest.people == 2 && placeRequest.isCouple">you and your partner</span><span ng-if="placeRequest.people == 3">you and two other people</span><span ng-if="placeRequest.people == 3 && placeRequest.isCouple">, including a couple</span>.
+  </p>
+  <p>We will inform you via email when we have something appropriate, or to request additional information such as budget and preferred locations.</p>
+  <h3>We look forward to helping you settle in Malta stress-free!</h3>
+</div>

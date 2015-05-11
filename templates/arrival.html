@@ -1,0 +1,15 @@
+<div class="slide-with-datepicker">
+  <h3>When are you arriving in Malta?</h3>
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+      <p class="input-group">
+        <input type="date" class="form-control" datepicker-popup ng-model="data.arrivalDate" is-open="formVariables.arrivalOpened" show-weeks="false" min-date="formVariables.arrivalMinDate" max-date="'2016-05-10'" ng-required="true" close-text="Close" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="open($event,'arrivalOpened')"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </p>
+    </div>
+  </div>
+  <h4>or</h4>
+  <button ng-click="data.arrivalDate=undefined;activateSlide(1,true);" class="btn">I'm already here</button>
+</div>

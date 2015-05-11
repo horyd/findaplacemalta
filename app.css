@@ -1,0 +1,34 @@
+header {
+  background-color: #333;
+}
+
+header .logo {
+  width: 100%;
+  margin: 10px 0;
+}
+.place-request-readable span {
+  font-weight: bold;
+}
+.slide-with-datepicker {
+  height:380px;
+}
+.jumbotron {
+  margin-top:30px;
+  background-image: url('/assets/jumbotron.jpg');
+  background-size: cover;
+}
+.jumbotron h2 {
+  text-align: center;
+  color: white;
+}
+
+.back-text {
+  margin-top:15px;
+  display: block;
+}
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
